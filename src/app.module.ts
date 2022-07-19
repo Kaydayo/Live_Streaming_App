@@ -6,10 +6,13 @@ import { AuthenticationModule } from './authentication/authentication.module';
 import { OrganizationsService } from './organizations/organizations.service';
 import { OrganizationsController } from './organizations/organizations.controller';
 import { OrganizationsModule } from './organizations/organizations.module';
+import { CoursesService } from './courses/courses.service';
+import { CoursesController } from './courses/courses.controller';
+import { CoursesModule } from './courses/courses.module';
 
 @Module({
-  imports: [UsersModule, AuthenticationModule, OrganizationsModule],
-  controllers: [AuthenticationController, OrganizationsController],
-  providers: [AuthenticationService, OrganizationsService],
+  imports: [UsersModule, AuthenticationModule, OrganizationsModule, CoursesModule],
+  controllers: [AuthenticationController, OrganizationsController, CoursesController],
+  providers: [AuthenticationService, OrganizationsService, CoursesService],
 })
 export class AppModule {}
