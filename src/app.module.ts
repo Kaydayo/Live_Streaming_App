@@ -15,9 +15,18 @@ import { NotificationController } from './notification/notification.controller';
 import { PaymentController } from './payment/payment.controller';
 import { NotificationModule } from './notification/notification.module';
 import { PaymentModule } from './payment/payment.module';
+import { MongooseModule } from '@nestjs/mongoose';
+require('dotenv').config();
+
+let URI:string
+if (process.env.NODE_ENV === 'production') { 
+ URI = process.env.MONGODB_URI_PROD
+} else {
+   URI = process.env.MONGODB_URI_DEV
+}
 
 @Module({
-  imports: [UsersModule, AuthenticationModule, OrganizationsModule, CoursesModule, NotificationModule, PaymentModule],
+  imports: [UsersModule, AuthenticationModule, OrganizationsModule, CoursesModule, NotificationModule, PaymentModule, MongooseModule.forRoot(URI)],
   controllers: [AuthenticationController, OrganizationsController, CoursesController, NotificationController, PaymentController],
   providers: [AuthenticationService, OrganizationsService, CoursesService, NotificationService, PaymentService],
 })

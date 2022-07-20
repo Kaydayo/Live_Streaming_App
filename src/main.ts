@@ -7,8 +7,8 @@ let logger = new Logger()
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await app.listen(3000, () => {
-    logger.log(`Application is running on port 3000`)
+  await app.listen(9000, () => {
+    logger.log(`Application is running on port 9000`)
     
     
   });
