@@ -4,7 +4,7 @@ import { ROLES } from 'src/utils/enums';
 
 export type UserDocument = User & Document;
 
-@Schema()
+@Schema({ timestamps: true  })
 export class User {
     @Prop({required: true})
     username: string;
