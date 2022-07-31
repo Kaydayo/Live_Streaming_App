@@ -16,6 +16,8 @@ import { PaymentController } from './payment/payment.controller';
 import { NotificationModule } from './notification/notification.module';
 import { PaymentModule } from './payment/payment.module';
 import { MongooseModule } from '@nestjs/mongoose';
+import { SubscriptionsController } from './Subscriptions/subscriptions.controller';
+import { SubscriptionsModule } from './Subscriptions/subscriptions.module';
 require('dotenv').config();
 
 let URI:string
@@ -26,8 +28,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 @Module({
-  imports: [UsersModule, AuthenticationModule, OrganizationsModule, CoursesModule, NotificationModule, PaymentModule, MongooseModule.forRoot(URI)],
-  controllers: [AuthenticationController, OrganizationsController, CoursesController, NotificationController, PaymentController],
+  imports: [UsersModule, AuthenticationModule, OrganizationsModule, CoursesModule, NotificationModule, PaymentModule, MongooseModule.forRoot(URI), SubscriptionsModule],
+  controllers: [AuthenticationController, OrganizationsController, CoursesController, NotificationController, PaymentController, SubscriptionsController],
   providers: [AuthenticationService, OrganizationsService, CoursesService, NotificationService, PaymentService],
 })
 export class AppModule {}

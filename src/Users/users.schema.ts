@@ -1,18 +1,18 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Mongoose, Schema as MongooseSchema, Types } from 'mongoose';
 import { ROLES } from 'src/utils/enums';
 
 export type UserDocument = User & Document;
 
 @Schema({ timestamps: true  })
 export class User {
-    @Prop({required: true})
+    @Prop()
     username: string;
 
     @Prop({required: true})
     password: string;
 
-    @Prop({required: true})
+    @Prop({required: true, unique:true})
     email: string;
 
     @Prop({required: true})
@@ -24,11 +24,8 @@ export class User {
     @Prop({type:[String], default:[ROLES.USER], enum:ROLES})
     role: string[];
 
-    @Prop({required: true})
+    @Prop({required: true, unique:true})
     phoneNumber: string;
-
-    @Prop()
-    address: string;
 
     @Prop({default: false})
     isAdmin: boolean;
@@ -42,13 +39,11 @@ export class User {
     @Prop({default: false})
     isLicense: boolean;
 
-    @Prop({default: false})
-    organization: string;
+    @Prop( {type: MongooseSchema.Types.ObjectId, ref: 'Organizations'})
+    organization: Types.ObjectId;
 
     @Prop()
     licenseExpiryDate: Date;
-    
-  
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);
