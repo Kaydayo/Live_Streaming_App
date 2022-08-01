@@ -21,8 +21,8 @@ export class Organization{
     @Prop()
     organizationValues: string;
 
-    @Prop({ type: MongooseSchema.Types.ObjectId, ref: 'Subscriptions' })
-    subscriptionDetails: Types.ObjectId[];
+    @Prop()
+    subscriptionDetails: string[];
 
 
 }

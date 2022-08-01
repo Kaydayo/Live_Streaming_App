@@ -9,6 +9,7 @@ export class User {
     @Prop()
     username: string;
 
+
     @Prop({required: true})
     password: string;
 
