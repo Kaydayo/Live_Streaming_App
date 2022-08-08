@@ -8,14 +8,14 @@ services:
       dockerfile: ./Dockerfile
     command: npm run start:dev
     ports:
-      - 9000:3000
+      - 9000:9000
       - 3001:9229
     networks:
       - nesjs-network
     depends_on:
       - mongodb
     volumes:
-      - ./src:/usr/src/app
+      - .:/usr/src/app
       - /usr/src/app/node_modules
     restart: unless-stopped
   mongodb:
@@ -36,14 +36,14 @@ services:
       dockerfile: ./Dockerfile
     command: npm run start:prod
     ports:
-      - 3000:3000
+      - 9000:9000
       - 9229:9229
     networks:
       - nesjs-network
     depends_on:
       - mongodb
     volumes:
-      - ./src:/usr/src/app
+      - .:/usr/src/app
       - /usr/src/app/node_modules
     restart: unless-stopped
 networks:
