@@ -7,11 +7,11 @@ let logger = new Logger()
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  await app.listen(9000, () => {
-    logger.log(`Application is running on port 9000`)
-    
-    
+  await app.listen(process.env.PORT, () => {
+    logger.log(`Application is running on port ${process.env.PORT}`)
+
+
   });
-  
+
 }
 bootstrap();

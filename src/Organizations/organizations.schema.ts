@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, isValidObjectId, Mongoose, Schema as MongooseSchema, Types } from 'mongoose'
-import { ORGANIZATION_EMPLOYEE_COUNT, ROLES } from 'src/utils/enums'
+import { ORGANIZATION_EMPLOYEE_COUNT, ROLES } from '../utils/enums'
 
 export type OrganizationDocument = Organization & Document;
 
