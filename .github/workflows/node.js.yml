@@ -41,6 +41,7 @@ jobs:
           mkdir app
           cd app
           git clone git@github.com:Kaydayo/Live_Streaming_App.git
+          ssh-add ~/.ssh/id_rsa
           echo 'Deployment Successful to Digital Ocean'
           npm install
           npm ci
