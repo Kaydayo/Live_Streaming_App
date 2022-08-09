@@ -5,6 +5,6 @@ export class UsersController {
 
     @Get('/ret')
     async createUser() {
-        return 'valhalla'
+        return 'valhallaj'
     }
 }
