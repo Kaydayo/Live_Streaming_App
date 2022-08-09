@@ -27,6 +27,7 @@ if (process.env.NODE_ENV === 'production') {
    URI = process.env.MONGODB_URI_DEV
 }
 
+console.log(URI)
 @Module({
   imports: [UsersModule, AuthenticationModule, OrganizationsModule, CoursesModule, NotificationModule, PaymentModule, MongooseModule.forRoot(URI), SubscriptionsModule],
   controllers: [AuthenticationController, OrganizationsController, CoursesController, NotificationController, PaymentController, SubscriptionsController],
