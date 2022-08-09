@@ -34,14 +34,14 @@ jobs:
           key: ${{secrets.SSH_KEY}}
           username: ${{secrets.SSH_USERNAME}}
           script: |
-            mkdir app
-            cd app
-            git clone git@github.com:Kaydayo/Live_Streaming_App.git
-            echo 'Deployment Successful to Digital Ocean'
-
+           
       # install applicaion dependencies
       - name: Install dependencies
         run: |
+          mkdir app
+          cd app
+          git clone git@github.com:Kaydayo/Live_Streaming_App.git
+          echo 'Deployment Successful to Digital Ocean'
           npm install
           npm ci
 
